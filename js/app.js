@@ -4,8 +4,8 @@ const keyboard = document.querySelector('#qwerty');
 const phrase = document.querySelector('#phrase');
 const missed = 0;
 const phrases = [
-  'The Cat in the Hat',
-  'This is heavy Doc',
+  'Supercalifragilisticexpialidocious',
+  'Hakuna Matata what a wonderful phrase',
   'You are killing me Smalls',
   'We are going to need a bigger boat',
   'To Infinity and Beyond'
@@ -48,6 +48,29 @@ function addPhraseToDisplay(arr){
     }
   }
 }
-//Show the game display
+
+// Show the game display
 const phraseArray = getRandomPhraseAsArray(phrases);
 addPhraseToDisplay(phraseArray);
+
+
+//Create a check letter function
+function checkLetter (clickedButton) {
+  const allLetters = document.querySelectorAll('.letter');
+  let letterGuess = null;
+  for (let i = 0; i < allLetters.length; i += 1) {
+    if (allLetters[i].textContent.toLowerCase() === clickedButton) {
+      allLetters[i].classList.add('show');
+      letterGuess = true;
+    }
+  }
+  return letterGuess;
+}
+
+//Add event listener to keyboard
+keyboard.addEventListener('click', (e) => {
+  let clickedButton = e.target.textContent;
+  checkLetter(clickedButton);
+  e.target.classList.add('chosen');
+  e.target.disabled = true;
+});
