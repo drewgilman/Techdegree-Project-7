@@ -4,11 +4,12 @@ const keyboard = document.querySelector('#qwerty');
 const phrase = document.querySelector('#phrase');
 let missed = 0;
 const phrases = [
-  'Supercalifragilisticexpialidocious',
-  'Hakuna Matata what a wonderful phrase',
-  'You are killing me Smalls',
-  'We are going to need a bigger boat',
-  'To Infinity and Beyond'
+  'Monsters Inc',
+  'Finding Nemo',
+  'The Incredibles',
+  'Toy Story',
+  'Wall E',
+  'A Bugs Life'
 ];
 const title = document.querySelector('.title');
 
@@ -80,10 +81,13 @@ function checkWin (){
     overlay.insertBefore(h2, startButton);
     overlay.className = 'win';
     overlay.style.display = '';
+    startButton.style.display = 'none';
   }
   if (missed >= 5) {
-    title.textContent = "I'm sorry. The correct answer was... " + '"' + phraseArray.join('') + '"';
-    // startButton.style.display = 'none';
+    title.textContent = phraseArray.join('');
+    h2.textContent = "was the answer. Sorry!";
+    overlay.insertBefore(h2, startButton);
+    startButton.style.display = 'none';
     overlay.className = 'lose';
     overlay.style.display = '';
   }
