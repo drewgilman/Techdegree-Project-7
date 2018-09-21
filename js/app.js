@@ -76,7 +76,7 @@ function checkWin (){
   h2.className = 'subHeadline';
   if (lettersCount === lettersShown) {
     title.textContent = phraseArray.join('');
-    h2.textContent = "You solved the puzzle!"
+    h2.textContent = "You solved the puzzle!";
     overlay.insertBefore(h2, startButton);
     overlay.className = 'win';
     overlay.style.display = '';
