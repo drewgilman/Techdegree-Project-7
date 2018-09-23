@@ -100,6 +100,8 @@ keyboard.addEventListener('click', (e) => {
   if(e.target.type === 'submit'){
     e.target.classList.add('chosen');
     e.target.disabled = true;
+  } else {
+    return;
   }
   //count the missed guessed
   if(guess === null){
